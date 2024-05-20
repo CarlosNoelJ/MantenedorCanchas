@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import CanchaList from './components/CanchaList';
+import TipoCanchaList from './components/TipoCanchaList';
+// import NotFound from './components/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="container mt-3">
+        <Routes>
+          <Route path="/" element={<CanchaList />} />
+          <Route path="/canchas" element={<CanchaList />} />
+          <Route path="/tipocanchas" element={<TipoCanchaList />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
