@@ -7,19 +7,29 @@ function CanchaList() {
   const [canchas, setCanchas] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(API_URLS.canchas);
-      setCanchas(result.data);
-    };
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const result = await axios(API_URLS.canchas);
+      setCanchas(result.data);
+    } catch (error) {
+      console.error('Error fetchin data', error);
+    }
+  }
+
+  const fetchCanchas = async () => {
+    const result = await axios.get(API_URLS.canchas);
+    setCanchas(result.data);
+  }
 
   return (
     <div className="container mt-4">
       <h2>Lista de Canchas</h2>
       <ul>
         {canchas.map(cancha => (
-          <li key={cancha.CanchaId}>{cancha.CanchaId} - {cancha.Estado}</li>
+          <li key={cancha.canchaId}>{cancha.tCanchaId} - {cancha.estado}</li>
         ))}
       </ul>
     </div>

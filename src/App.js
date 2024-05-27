@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CanchaList from './components/CanchaList';
-import TipoCanchaList from './components/TipoCanchaList';
+import TipoCanchaList from './components/tipoCanchas/TipoCanchaList';
 // import NotFound from './components/NotFound';
 
 function App() {
